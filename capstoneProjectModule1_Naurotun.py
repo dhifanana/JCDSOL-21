@@ -4,7 +4,7 @@ listBuku = [
         "Pengarang": "James Clear",
         "Penerbit": "Avery",
         "Kategori": "Self-Help",
-        "Tipe Buku": "Ceatk",
+        "Tipe Buku": "Cetak",
         "Jumlah": 10
     },
     {
@@ -432,7 +432,7 @@ def lihat_bukuUmum():
         print(f"""Pengarang: {info2}
 Penerbit: {info3}
 Kategori: {info4}
-Tippe Buku: {info5}
+Tipe Buku: {info5}
 Jumlah: {info6}""")
         print("-"*60)
     
@@ -524,8 +524,9 @@ def ubah_buku():
     else:
         print('Tidak menerima kata di luar "Cetak" dan "Ebook". Form ditolak')
         print(jumlah)
+        return
         
-    listBuku[daftarTerpilih]["Judul"] = judul
+    listBuku[daftarTerpilih]["Judul Buku"] = judul
     listBuku[daftarTerpilih]["Pengarang"] = pengarang
     listBuku[daftarTerpilih]["Penerbit"] = penerbit
     listBuku[daftarTerpilih]["Kategori"] = kategori
@@ -643,20 +644,11 @@ def tambah_akun():
     
     akunFound = [i for i in listAkun if i["Username"] == username]
 
-    if not fullname.isalpha():
-        print("Fullname hanya bisa menerima abjad. Form ditolak silakan coba lagi")
-        tambah_akun()
-    elif akunFound:
+    if akunFound:
         print("Username sudah digunakan. Form ditolak silakan coba lagi")
         tambah_akun()
     elif not age.isdigit() or "." in age:
         print("Age hanya menerima angka bulat. Form ditolak silakan coba lagi")
-        tambah_akun()
-    elif not domisili.isalpha():
-        print("Domisili hanya bisa menerima abjad. Form ditolak silakan coba lagi")
-        tambah_akun()
-    elif not favGenre.isalpha():
-        print("Favorite genre hanya bisa menerima abjad. Form ditolak silakan coba lagi")
         tambah_akun()
     elif not regDate.isdigit() or "." in regDate or "-" in regDate or len(regDate) != 8:
         print("Registration date hanya menerima format yyyymmdd. Form ditolak silakan coba lagi")
